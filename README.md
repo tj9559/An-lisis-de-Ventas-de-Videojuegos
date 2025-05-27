@@ -1,31 +1,56 @@
-# test-A-B
-Análisis de Prioridad de Hipótesis y Prueba A/B – Tienda Online
-Parte 1. Priorizar hipótesis
+# Análisis de Ventas de Videojuegos
 
-El archivo hypotheses_us.csv contiene nueve hipótesis sobre cómo aumentar los ingresos de una tienda online con Reach, Impact, Confidence y Effort especificados para cada una.
+Descripción del proyecto
 
+Trabajas para la tienda online Ice que vende videojuegos por todo el mundo. Las reseñas de usuarios y expertos, los géneros, las plataformas (por ejemplo, Xbox o PlayStation) y los datos históricos sobre las ventas de juegos están disponibles en fuentes abiertas. Tienes que identificar patrones que determinen si un juego tiene éxito o no. Esto te permitirá detectar proyectos prometedores y planificar campañas publicitarias.
 
-    Aplicar el framework ICE para priorizar hipótesis. Ordenarlas en orden descendente de prioridad.
-    Aplicar el framework RICE para priorizar hipótesis. Ordenarlas en orden descendente de prioridad.
-    Mostrar cómo cambia la priorización de hipótesis cuando utilizas RICE en lugar de ICE. Proporcionar una explicación de los cambios.
+Delante de ti hay datos que se remontan a 2016. Imaginemos que es diciembre de 2016 y estás planeando una campaña para 2017.
 
-Parte 2. Análisis del test A/B
+Lo importante es adquirir experiencia de trabajo con datos. Realmente no importa si estás pronosticando las ventas de 2017 en función de los datos de 2016 o las ventas de 2027 en función de los datos de 2026.
 
-Realizaste una prueba A/B y obtuviste los resultados descritos en los archivos orders_us.csv y visits_us.csv.
+El dataset contiene una columna "rating" que almacena la clasificación ESRB de cada juego. El Entertainment Software Rating Board (la Junta de clasificación de software de entretenimiento) evalúa el contenido de un juego y asigna una clasificación de edad como Adolescente o Adult
 
+Prepara los datos
 
-Analiza el test A/B:
+    Reemplaza los nombres de las columnas (ponlos en minúsculas).
+    Convierte los datos en los tipos necesarios.
+    Describe las columnas en las que los tipos de datos han sido cambiados y explica por qué.
+    Si es necesario, elige la manera de tratar los valores ausentes:
+        Explica por qué rellenaste los valores ausentes como lo hiciste o por qué decidiste dejarlos en blanco.
+        ¿Por qué crees que los valores están ausentes? Brinda explicaciones posibles.
+        Presta atención a la abreviatura TBD: significa "to be determined" (a determinar). Especifica cómo piensas manejar estos casos.
+    Calcula las ventas totales (la suma de las ventas en todas las regiones) para cada juego y coloca estos valores en una columna separada.
 
-    Representa gráficamente el ingreso acumulado por grupo. Haz conclusiones y conjeturas.
-    Representa gráficamente el tamaño de pedido promedio acumulado por grupo. Haz conclusiones y conjeturas.
-    Representa gráficamente la diferencia relativa en el tamaño de pedido promedio acumulado para el grupo B en comparación con el grupo A. Haz conclusiones y conjeturas.
-    Calcula la tasa de conversión de cada grupo como la relación entre los pedidos y el número de visitas de cada día. Representa gráficamente las tasas de conversión diarias de los dos grupos y describe la diferencia. Saca conclusiones y haz conjeturas.
-    Traza un gráfico de dispersión del número de pedidos por usuario. Haz conclusiones y conjeturas.
-    Calcula los percentiles 95 y 99 del número de pedidos por usuario. Define el punto en el cual un punto de datos se convierte en una anomalía.
-    Traza un gráfico de dispersión de los precios de los pedidos. Haz conclusiones y conjeturas.
-    Calcula los percentiles 95 y 99 de los precios de los pedidos. Define el punto en el cual un punto de datos se convierte en una anomalía.
-    Encuentra la significancia estadística de la diferencia en la conversión entre los grupos utilizando los datos en bruto. Haz conclusiones y conjeturas.
-    Encuentra la significancia estadística de la diferencia en el tamaño promedio de pedido entre los grupos utilizando los datos en bruto. Haz conclusiones y conjeturas.
-    Encuentra la significancia estadística de la diferencia en la conversión entre los grupos utilizando los datos filtrados. Haz conclusiones y conjeturas.
-    Encuentra la significancia estadística de la diferencia en el tamaño promedio de pedido entre los grupos utilizando los datos filtrados. Haz conclusiones y conjeturas.
-    Toma una decisión basada en los resultados de la prueba. Las decisiones posibles son: 1. Parar la prueba, considerar a uno de los grupos como líder. 2. Parar la prueba, concluir que no hay diferencia entre los grupos. 3. Continuar la prueba.
+Paso 3. Analiza los datos
+
+    Mira cuántos juegos fueron lanzados en diferentes años. ¿Son significativos los datos de cada período?
+    Observa cómo varían las ventas de una plataforma a otra. Elige las plataformas con las mayores ventas totales y construye una distribución basada en los datos de cada año. Busca las plataformas que solían ser populares pero que ahora no tienen ventas. ¿Cuánto tardan generalmente las nuevas plataformas en aparecer y las antiguas en desaparecer?
+    Determina para qué período debes tomar datos. Para hacerlo mira tus respuestas a las preguntas anteriores. Los datos deberían permitirte construir un modelo para 2017.
+    Trabaja solo con los datos que consideras relevantes. Ignora los datos de años anteriores.
+    ¿Qué plataformas son líderes en ventas? ¿Cuáles crecen y cuáles se reducen? Elige varias plataformas potencialmente rentables.
+    Crea un diagrama de caja para las ventas globales de todos los juegos, desglosados por plataforma. ¿Son significativas las diferencias en las ventas? ¿Qué sucede con las ventas promedio en varias plataformas? Describe tus hallazgos.
+    Mira cómo las reseñas de usuarios y profesionales afectan las ventas de una plataforma popular (tu elección). Crea un gráfico de dispersión y calcula la correlación entre las reseñas y las ventas. Saca conclusiones.
+    Teniendo en cuenta tus conclusiones compara las ventas de los mismos juegos en otras plataformas.
+    Echa un vistazo a la distribución general de los juegos por género. ¿Qué se puede decir de los géneros más rentables? ¿Puedes generalizar acerca de los géneros con ventas altas y bajas?
+
+Paso 4. Crea un perfil de usuario para cada región
+
+Para cada región (NA, UE, JP) determina:
+
+    Las cinco plataformas principales. Describe las variaciones en sus cuotas de mercado de una región a otra.
+    Los cinco géneros principales. Explica la diferencia.
+    Si las clasificaciones de ESRB afectan a las ventas en regiones individuales.
+
+Paso 5. Prueba las siguientes hipótesis:
+
+— Las calificaciones promedio de los usuarios para las plataformas Xbox One y PC son las mismas.
+
+— Las calificaciones promedio de los usuarios para los géneros de Acción y Deportes son diferentes.
+
+Establece tu mismo el valor de umbral alfa.
+
+Explica:
+
+— Cómo formulaste las hipótesis nula y alternativa.
+
+— Qué criterio utilizaste para probar las hipótesis y por qué
